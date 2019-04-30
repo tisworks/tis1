@@ -30,7 +30,49 @@
 
         <div>Apenas ensinando</div>
 
-
+        <div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Novo Contato</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="name" aria-describedby="" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="lastname" aria-describedby="" placeholder="Sobrenome">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="phone" aria-describedby="" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email"  placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="observations">Observações</label>
+                            <textarea class="form-control" id="observations" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary">Tags</button>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="favorite">
+                            <label class="form-check-label" for="favorite">Favorito</label>
+                          </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Adicionar</button>
+                </div>
+              </div>
+            </div>
+        </div>
 
         <footer class="page-footer">
         <div>
