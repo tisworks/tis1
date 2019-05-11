@@ -19,11 +19,12 @@ function createClient() {
     telephone = document.getElementById("telephone").value;
     //TODO change according with the final implementation
     tags = ""
-    //TODO Implement Picture
+    //TODO change according with the final implementation
     picture = ""
     //TODO change according with the final implementation
     isFavorite = ""
     observations = document.getElementById("observations").value;
+    //TODO change according with the final implementation
     type = "";
 
     return new Client(name, lastName, email, telephone, tags, picture, isFavorite, observations, type)
