@@ -29,3 +29,7 @@ function createClient() {
 
     return new Client(name, lastName, email, telephone, tags, picture, isFavorite, observations, type)
 }
+
+$('#addContact').on('shown.bs.modal', function () {
+    $('#inputBtn').trigger('focus')
+});
