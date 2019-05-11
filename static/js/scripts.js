@@ -20,7 +20,7 @@ class contact {
     }
 }
 
-function createcontact() {
+function createContact() {
     name = document.getElementById("name").value;
     lastName = document.getElementById("lastName").value;
     email = document.getElementById("email").value;
@@ -37,7 +37,7 @@ function createcontact() {
     return new contact(name, lastName, email, telephone, tags, picture, isFavorite, observations, type)
 }
 
-function savecontactLocalStorage(contact) {
+function saveContactLocalStorage(contact) {
     var contactToSave = {
         'name': contact.name,
         'lastName': contact.lastName,
@@ -62,8 +62,8 @@ function carregarEventListeners(){
     });
 
     $('#confirmAdd').on('click', function(){
-        var newcontact = createcontact();
-        savecontactLocalStorage(newcontact);
+        var newcontact = createContact();
+        saveContactLocalStorage(newcontact);
     });
 }
 
