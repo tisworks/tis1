@@ -1,12 +1,12 @@
-var _clients = null;
+var _contacts = null;
 
 $(document).ready(function() {
     carregarEventListeners();
     carregarDadosSalvos();
-    //TODO: carregarDadosIniciais(); -- Iterar pelo objeto _clients e ir montando o html com os cards cadastrados
+    //TODO: carregarDadosIniciais(); -- Iterar pelo objeto _contacts e ir montando o html com os cards cadastrados
 });
 
-class Client {
+class contact {
     constructor(name, lastName, email, telephone, tags, picture, isFavorite, observations, type) {
         this.name = name;
         this.lastName = lastName;
@@ -20,8 +20,8 @@ class Client {
     }
 }
 
-function createClient() {
-    name = document.getElementById("clientName").value;
+function createcontact() {
+    name = document.getElementById("name").value;
     lastName = document.getElementById("lastName").value;
     email = document.getElementById("email").value;
     telephone = document.getElementById("telephone").value;
@@ -34,24 +34,25 @@ function createClient() {
     //TODO change according with the final implementation
     type = "";
 
-    return new Client(name, lastName, email, telephone, tags, picture, isFavorite, observations, type)
+    return new contact(name, lastName, email, telephone, tags, picture, isFavorite, observations, type)
 }
 
-function saveClientLocalStorage(client) {
-    var clientToSave = {
-        'name': client.name,
-        'lastName': client.lastName,
-        'email': client.email,
-        'telephone': client.telephone,
-        'tags': client.tags,
-        'picture': client.picture,
-        'isFavorite': client.isFavorite,
-        'observations': client.observations,
-        'type': client.type
+function savecontactLocalStorage(contact) {
+    var contactToSave = {
+        'name': contact.name,
+        'lastName': contact.lastName,
+        'email': contact.email,
+        'telephone': contact.telephone,
+        'tags': contact.tags,
+        'picture': contact.picture,
+        'isFavorite': contact.isFavorite,
+        'observations': contact.observations,
+        'type': contact.type
     }
 
-    _clients.push(clientToSave);
-    localStorage.setItem('clients', JSON.stringify(_clients));
+    _contacts.push(contactToSave);
+    localStorage.setItem('contacts', JSON.stringify(_contacts));
+    alert("Contato salvo com sucesso");
 };
 
 function carregarEventListeners(){
@@ -61,17 +62,16 @@ function carregarEventListeners(){
     });
 
     $('#confirmAdd').on('click', function(){
-        var newClient = createClient();
-        saveClientLocalStorage(newClient);
+        var newcontact = createcontact();
+        savecontactLocalStorage(newcontact);
     });
 }
 
 //carrega dados default caso não tenha nenhum dado salvo. 
-//Os dados default estão salvos num Json em: static/data/clientes.js
+//Os dados default estão salvos num Json em: static/data/contactes.js
 function carregarDadosSalvos(){
-    if(!localStorage.clients)
-        _clients = cadastroDefault;
+    if(!localStorage.contacts)
+        _contacts = cadastroDefault;
     else
-        _clients = JSON.parse(localStorage.clients);
+        _contacts = JSON.parse(localStorage.contacts);
 }
-
