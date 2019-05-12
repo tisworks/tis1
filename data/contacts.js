@@ -1,6 +1,4 @@
-var cadastroDefault = 
-[
-    {
+var defaultData = [{
         'name': 'NameTeste',
         'lastName': 'LasNameTeste',
         'email': 'testeteste@gmail.com',

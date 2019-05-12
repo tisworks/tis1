@@ -1,12 +1,12 @@
 var _contacts = null;
 
 $(document).ready(function() {
-    carregarEventListeners();
-    carregarDadosSalvos();
+    loadEventListeners();
+    loadSavedData();
     //TODO: carregarDadosIniciais(); -- Iterar pelo objeto _contacts e ir montando o html com os cards cadastrados
 });
 
-class contact {
+class Contact {
     constructor(name, lastName, email, telephone, tags, picture, isFavorite, observations, type) {
         this.name = name;
         this.lastName = lastName;
@@ -16,7 +16,7 @@ class contact {
         this.picture = picture;
         this.isFavorite = isFavorite;
         this.observations = observations;
-        this.type = type;    
+        this.type = type;
     }
 }
 
@@ -25,16 +25,16 @@ function createContact() {
     lastName = document.getElementById("lastName").value;
     email = document.getElementById("email").value;
     telephone = document.getElementById("telephone").value;
-    //TODO change according with the final implementation
-    tags = ""
-    //TODO change according with the final implementation
-    picture = ""
+    //TODO Alterar de acordo com a implementacao final
+    tags = "";
+    //TODO Alterar de acordo com a implementacao final
+    picture = "";
     isFavorite = $('#favorite').is(':checked');
     observations = document.getElementById("observations").value;
-    //TODO change according with the final implementation
+    //TODO Alterar de acordo com a implementacao final
     type = "";
 
-    return new contact(name, lastName, email, telephone, tags, picture, isFavorite, observations, type)
+    return new Contact(name, lastName, email, telephone, tags, picture, isFavorite, observations, type);
 }
 
 function saveContactLocalStorage(contact) {
@@ -55,23 +55,23 @@ function saveContactLocalStorage(contact) {
     alert("Contato salvo com sucesso");
 };
 
-function carregarEventListeners(){
+function loadEventListeners() {
 
-    $('#addContact').on('shown.bs.modal', function () {
+    $('#addContact').on('shown.bs.modal', function() {
         $('#inputBtn').trigger('focus')
     });
 
-    $('#confirmAdd').on('click', function(){
-        var newcontact = createContact();
-        saveContactLocalStorage(newcontact);
+    $('#confirmAdd').on('click', function() {
+        var newContact = createContact();
+        saveContactLocalStorage(newContact);
     });
 }
 
-//carrega dados default caso não tenha nenhum dado salvo. 
-//Os dados default estão salvos num Json em: static/data/contactes.js
-function carregarDadosSalvos(){
-    if(!localStorage.contacts)
-        _contacts = cadastroDefault;
+//Carrega dados default caso não tenha nenhum dado salvo.
+//Os dados default estão salvos num Json em: data/contacts.js
+function loadSavedData() {
+    if (!localStorage.contacts)
+        _contacts = defaultData;
     else
         _contacts = JSON.parse(localStorage.contacts);
 }
