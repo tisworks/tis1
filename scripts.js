@@ -1,9 +1,9 @@
 var _contacts = null;
 
-$(document).ready(function() {
+$(document).ready(function($) {
     loadEventListeners();
     loadSavedData();
-    //TODO: carregarDadosIniciais(); -- Iterar pelo objeto _contacts e ir montando o html com os cards cadastrados
+    //TODO: listSavedContacts(); -- Iterar pelo objeto _contacts e ir montando o html com os cards cadastrados
 });
 
 class Contact {
@@ -52,7 +52,6 @@ function saveContactLocalStorage(contact) {
 
     _contacts.push(contactToSave);
     localStorage.setItem('contacts', JSON.stringify(_contacts));
-    alert("Contato salvo com sucesso");
 };
 
 function loadEventListeners() {
@@ -65,13 +64,17 @@ function loadEventListeners() {
         var newContact = createContact();
         saveContactLocalStorage(newContact);
     });
+
+    loadFieldMasks();
 }
 
-//Carrega dados default caso não tenha nenhum dado salvo.
-//Os dados default estão salvos num Json em: data/contacts.js
 function loadSavedData() {
     if (!localStorage.contacts)
         _contacts = defaultData;
     else
         _contacts = JSON.parse(localStorage.contacts);
+}
+
+function loadFieldMasks() {
+    $('#telephone').mask('(99) 99999-9999');
 }
