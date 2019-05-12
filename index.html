@@ -25,17 +25,22 @@
 <body>
     <div class="container">
         <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
-            <header class="bmd-layout-header">
+            <header class="bmd-layout-header" id="header">
                 <div class="navbar navbar-light bg-faded">
                     <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
-                    <span class="sr-only">Toggle drawer</span>
-                    <i class="material-icons">menu</i>
-                </button>
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item">Title</li>
-                    </ul>
+                        <span class="sr-only">Toggle drawer</span>
+                        <i class="material-icons">menu</i>
+                    </button>
+                    <a href="index.html">
+                        <img src="assets/ava.png" height="80" width="80">
+                    </a>
+                    <button type="button">
+                        <span class="sr-only">Search</span>
+                        <i class="material-icons" style="margin-top: 7px">search</i>
+                    </button>
                 </div>
             </header>
+            <!-- TODO Definir menu interior -->
             <div id="dw-s2" class="bmd-layout-drawer bg-faded">
                 <header>
                     <a class="navbar-brand">Title</a>
@@ -48,126 +53,169 @@
             </div>
             <main class="bmd-layout-content">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <img class="card-img-left" src="..." alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div id="cardPlace">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <img class="card-img-left" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <!--Small Screens-->
+                        <div class="col-10 text-right d-md-none">
+                            <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                        <!--Bigger Screens-->
+                        <div class="col-11 text-right d-none d-md-block">
+                            <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
+                                <i class="material-icons">add</i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </main>
         </div>
     </div>
+</body>
 
-
-
-
-    <div class="container">
-
-
-
-
-        <!--
-        <header>
-            <nav>
-                <ul class="nav nav-pills nav-fill">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src="assets/menu.png" height="35" width="50"></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">favoritos</a>
-                            <a class="dropdown-item" href="#">contatos</a>
-                            <a class="dropdown-item" href="#">funcionários</a>
+<!-- Modal de Inscrição -->
+<div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Novo Contato</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="profileImg">Imagem de Perfil</span>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="assets/ava.png" height="80" width="80"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <a href="index.html"><img src="assets/lupa.png" height="40" width="45"></a>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>-->
-
-
-
-
-        <div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ModalLabel">Novo Contato</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="profileImg" aria-describedby="profileImg">
+                            <label class="custom-file-label" for="profileImg">Escolha o arquivo</label>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="profileImg">Imagem de Perfil</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="profileImg" aria-describedby="profileImg">
-                                    <label class="custom-file-label" for="profileImg">Escolha o arquivo</label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="name" aria-describedby="" placeholder="Nome" required aria-required="true" maxlength="25">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="lastName" aria-describedby="" placeholder="Sobrenome" required aria-required="true" maxlength="25">
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" class="form-control" id="telephone" aria-describedby="" placeholder="Telefone: (XX) XXXXX-XXXX" required aria-required="true">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="observations">Observações</label>
-                                <textarea class="form-control" id="observations" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-primary">Tags</button>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="favorite">
-                                <label class="form-check-label" for="favorite">Favorito</label>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id='confirmAdd'>Adicionar</button>
-                            </div>
-                        </form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" aria-describedby="" placeholder="Nome" required aria-required="true" maxlength="25">
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!--Small Screens-->
-            <div class="col-10 text-right d-md-none">
-                <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
-                    <i class="material-icons">add</i>
-                </button>
-            </div>
-            <!--Bigger Screens-->
-            <div class="col-11 text-right d-none d-md-block">
-                <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
-                    <i class="material-icons">add</i>
-                </button>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="lastName" aria-describedby="" placeholder="Sobrenome" required aria-required="true" maxlength="25">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" id="telephone" aria-describedby="" placeholder="Telefone: (XX) XXXXX-XXXX" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="observations">Observações</label>
+                        <textarea class="form-control" id="observations" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary">Tags</button>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="favorite">
+                        <label class="form-check-label" for="favorite">Favorito</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id='confirmAdd'>Adicionar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <footer class="page-footer">
-    </footer>
-</body>
+</div>
 
 </html>
