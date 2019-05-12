@@ -58,7 +58,7 @@ function saveContactLocalStorage(contact) {
 function loadEventListeners() {
 
     $('#addContact').on('shown.bs.modal', function() {
-        $('#inputBtn').trigger('focus')
+        $('#addBtn').trigger('focus')
     });
 
     $('#confirmAdd').on('click', function() {

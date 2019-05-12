@@ -1,0 +1,8 @@
+body {
+    background-color: darkgrey;
+}
+
+#addBtn {
+    position: fixed;
+    bottom: 0px;
+}
