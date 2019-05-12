@@ -12,15 +12,15 @@ nav {
     background-color: black;
 }
 
+header i {
+    margin-top: 9px;
+}
+
 #addBtn {
     position: fixed;
     bottom: 0px;
     color: white;
     background-color: black;
-}
-
-header i {
-    margin-top: 9px;
 }
 
 #cardPlace {
