@@ -1,131 +1,233 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>AVA - Agenda Virtual</title>
-    <!--CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!--JS-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
-    <script>
+    <head>
+        <meta charset="utf-8">
+        <title>AVA - Agenda Virtual</title>
+        <!--CSS-->
+        <link rel="stylesheet"
+            href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+            integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
+            crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <!--JS-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+            integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+            integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+        <script>
         $(document).ready(function() {
             $('body').bootstrapMaterialDesign();
         });
     </script>
-    <script src="data/contacts.js"></script>
-    <script src="scripts.js"></script>
-</head>
+        <script src="data/contacts.js"></script>
+        <script src="scripts.js"></script>
+    </head>
 
-<body>
-    <div class="container">
-        <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
-            <header class="bmd-layout-header" id="header">
-                <div class="navbar navbar-light bg-faded">
-                    <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
-                        <span class="sr-only">Toggle drawer</span>
-                        <i class="material-icons">menu</i>
-                    </button>
-                    <a href="index.html">
-                        <img src="assets/ava.png" height="80" width="80">
-                    </a>
-                    <button type="button">
-                        <span class="sr-only">Search</span>
-                        <i class="material-icons" style="margin-top: 7px">search</i>
+    <body>
+        <header>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark
+                d-flex justify-content-between" id="header">
+                <button type="button">
+                    <span class="sr-only">Toggle drawer</span>
+                    <i class="material-icons">menu</i>
+                </button>
+                <a href="index.html">
+                    <img src="assets/ava.png" height="80" width="80">
+                </a>
+                <button type="button">
+                    <span class="sr-only">Search</span>
+                    <i class="material-icons" style="margin-top: 7px">search</i>
+                </button>
+                <!--<button type="button">
+                    <span class="sr-only">Toggle drawer</span>
+                    <i class="material-icons">menu</i>
+                </button>
+                <a href="index.html">
+                    <img src="assets/ava.png" height="80" width="80">
+                </a>
+                <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu"
+                                aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else
+                                    here</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0"
+                            type="submit">Search</button>
+                    </form>
+                </div>-->
+            </nav>
+        </header>
+        <div class="container">
+            <div id="cardPlace"></div>
+            <div class="row">
+                <!--Small Screens-->
+                <div class="col-10 text-right d-md-none">
+                    <button type="button" class="btn btn-info
+                        bmd-btn-fab border border-dark" id="addBtn"
+                        data-toggle="modal"
+                        data-target="#addContact">
+                        <i class="material-icons">add</i>
                     </button>
                 </div>
-            </header>
-            <!-- TODO Definir menu interior -->
-            <div id="dw-s2" class="bmd-layout-drawer bg-faded">
-                <header>
-                    <a class="navbar-brand">Title</a>
-                </header>
-                <ul class="list-group">
-                    <a class="list-group-item">Link 1</a>
-                    <a class="list-group-item">Link 2</a>
-                    <a class="list-group-item">Link 3</a>
-                </ul>
+                <!--Bigger Screens-->
+                <div class="col-11 text-right d-none d-md-block">
+                    <button type="button" class="btn btn-info
+                        bmd-btn-fab border border-dark" id="addBtn"
+                        data-toggle="modal"
+                        data-target="#addContact">
+                        <i class="material-icons">add</i>
+                    </button>
+                </div>
             </div>
-            <main class="bmd-layout-content">
-                <div class="container">
-                    <div id="cardPlace"></div>
-                    <div class="row">
-                        <!--Small Screens-->
-                        <div class="col-10 text-right d-md-none">
-                            <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
-                        <!--Bigger Screens-->
-                        <div class="col-11 text-right d-none d-md-block">
-                            <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
-                    </div>
+        </div>
+    </body>
+
+    <!-- Modal de Inscrição -->
+    <div class="modal fade" id="addContact" tabindex="-1" role="dialog"
+        aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Novo Contato</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </main>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="profileImg">Imagem
+                                    de Perfil</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input"
+                                    id="profileImg"
+                                    aria-describedby="profileImg">
+                                <label class="custom-file-label"
+                                    for="profileImg">Escolha o arquivo</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name"
+                                aria-describedby="" placeholder="Nome" required
+                                aria-required="true" maxlength="25">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control"
+                                id="lastName" aria-describedby=""
+                                placeholder="Sobrenome" required
+                                aria-required="true" maxlength="25">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control"
+                                id="telephone" aria-describedby=""
+                                placeholder="Telefone: (XX) XXXXX-XXXX" required
+                                aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email"
+                                placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="observations">Observações</label>
+                            <textarea class="form-control" id="observations"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary">Tags</button>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input"
+                                id="favorite">
+                            <label class="form-check-label" for="favorite">Favorito</label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary"
+                                id='confirmAdd'>Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</body>
 
-<!-- Modal de Inscrição -->
-<div class="modal fade" id="addContact" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="ModalLabel">Novo Contato</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+    <!--<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+        <header class="bmd-layout-header" id="header">
+            <div class="navbar navbar-light bg-faded">
+                <button class="navbar-toggler" type="button"
+                    data-toggle="drawer" data-target="#dw-s2">
+                    <span class="sr-only">Toggle drawer</span>
+                    <i class="material-icons">menu</i>
+                </button>
+                <a href="index.html">
+                    <img src="assets/ava.png" height="80" width="80">
+                </a>
+                <button type="button">
+                    <span class="sr-only">Search</span>
+                    <i class="material-icons" style="margin-top: 7px">search</i>
                 </button>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="profileImg">Imagem de Perfil</span>
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="profileImg" aria-describedby="profileImg">
-                            <label class="custom-file-label" for="profileImg">Escolha o arquivo</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="name" aria-describedby="" placeholder="Nome" required aria-required="true" maxlength="25">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="lastName" aria-describedby="" placeholder="Sobrenome" required aria-required="true" maxlength="25">
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control" id="telephone" aria-describedby="" placeholder="Telefone: (XX) XXXXX-XXXX" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="observations">Observações</label>
-                        <textarea class="form-control" id="observations" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary">Tags</button>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="favorite">
-                        <label class="form-check-label" for="favorite">Favorito</label>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" id='confirmAdd'>Adicionar</button>
-                    </div>
-                </form>
-            </div>
+        </header>
+        <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+            <header>
+                <a class="navbar-brand">Title</a>
+            </header>
+            <ul class="list-group">
+                <a class="list-group-item">Link 1</a>
+                <a class="list-group-item">Link 2</a>
+                <a class="list-group-item">Link 3</a>
+            </ul>
         </div>
-    </div>
-</div>
+        <main class="bmd-layout-content">
+            <div class="container">
 
+            </div>
+        </main>
+    </div>-->
 </html>
