@@ -24,10 +24,6 @@ header i {
 }
 
 #cardPlace {
-    margin-top: 100px;
-}
-
-#cardPlace .row {
     margin-top: 30px;
 }
 
@@ -44,4 +40,8 @@ header i {
 
 #cardPlace button {
     background-color: DarkGoldenRod!important;
+}
+
+.container {
+    margin-top: 100px;
 }
