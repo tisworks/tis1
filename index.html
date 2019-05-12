@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>AVA - Agenda Virtual</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="assets/favicon.ico" /> 
+    <link rel="shortcut icon" href="assets/favicon.ico" />
     <!--CSS-->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -83,20 +83,41 @@
     </header>
     <div class="container">
         <div id="cardPlace">
-            <div class="row">
+            <div class="row row-eq-height">
                 <div class="col-3">
-                    <div class="card">
-                        <img class="card-img-left" src="assets/skull.png" alt="Card image cap" height="200" width="200">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img src="assets/skull.png" alt="Imagem do Contato">
+                        </div>
                     </div>
                 </div>
                 <div class="col-9">
-                    <div class="card">
+                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title"> Pedro Almeida</h5>
-                            <p class="card-text">LastName: ueoauoea</p>
-                            <p class="card-text">Email: ueoauoe</p>
-                            <p class="card-text">Telephone: ueao</p>
-                            <p class="card-text">observations: ueoa</p>
+                            <div class="row">
+                                <div class="col-10">
+                                    <h4 class="card-title">Pedro Almeida</h4>
+                                </div>
+                                <div class="col-1">
+                                    <button type="button" class="btn btn-info ava-btn">
+                                        <span class="sr-only">Favorito</span>
+                                        <i class="material-icons">grade</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <h5 class="card-text "><b>Tel:</b> (31) 3493-0066</h5>
+                            <h5 class="card-text "><b>Email:</b> pedroalmeida@gmail.com</h5>
+                            <div class="row">
+                                <div class="col-3">
+                                    <span><h5>Cliente</h5></span>
+                                </div>
+                                <div class="col-3">
+                                    <span><h5>Tag1</h5></span>
+                                </div>
+                                <div class="col-3">
+                                    <span><h5>Tag2</h5></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,14 +127,14 @@
             <!--Small Screens-->
             <div class="col-10 text-right d-md-none">
                 <button type="button" class="btn btn-info
-                        bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
+                            bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
                     <i class="material-icons">add</i>
                 </button>
             </div>
             <!--Bigger Screens-->
             <div class="col-11 text-right d-none d-md-block">
                 <button type="button" class="btn btn-info
-                        bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
+                            bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
                     <i class="material-icons">add</i>
                 </button>
             </div>
@@ -159,16 +180,17 @@
                     <div class="form-group">
                         <div class="checkbox">
                             <label>
-                              <input type="checkbox" id="favorite"> Favorito
+                                <input type="checkbox" id="favorite"> Favorito
                             </label>
-                          </div>   
+                        </div>
                         <div class="checkbox">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" id='confirmAdd'>Adicionar</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" id='confirmAdd'>Adicionar</button>
+                        </div>
                 </form>
+                </div>
             </div>
         </div>
     </div>
