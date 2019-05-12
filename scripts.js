@@ -1,6 +1,4 @@
-var _contacts = {
-    list: null
-};
+var _contacts = null;
 
 $(document).ready(function($) {
     loadEventListeners();
@@ -41,8 +39,8 @@ function createContact() {
 
 function saveContact() {
     contactToSave = createContact();
-    _contacts.list.push(contactToSave);
-    localStorage.setItem('contacts', JSON.stringify(_contacts.list));
+    _contacts.push(contactToSave);
+    localStorage.setItem('contacts', JSON.stringify(_contacts));
     insertContactCard(contactToSave);
 };
 
@@ -61,11 +59,11 @@ function loadEventListeners() {
 
 function loadData() {
     if (!localStorage.contacts)
-        _contacts.list = defaultData;
+        _contacts = defaultData;
     else
-        _contacts.list = JSON.parse(localStorage.contacts);
+        _contacts = JSON.parse(localStorage.contacts);
 
-    _contacts.list.forEach(contact => {
+    _contacts.forEach(contact => {
         insertContactCard(contact);
     });
 
