@@ -23,53 +23,79 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
-            <header class="bmd-layout-header" id="header">
-                <div class="navbar navbar-light bg-faded">
-                    <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
-                        <span class="sr-only">Toggle drawer</span>
-                        <i class="material-icons">menu</i>
-                    </button>
-                    <a href="index.html">
-                        <img src="assets/ava.png" height="80" width="80">
-                    </a>
-                    <button type="button">
-                        <span class="sr-only">Search</span>
-                        <i class="material-icons" style="margin-top: 7px">search</i>
-                    </button>
-                </div>
-            </header>
-            <!-- TODO Definir menu interior -->
-            <div id="dw-s2" class="bmd-layout-drawer bg-faded">
-                <header>
-                    <a class="navbar-brand">Title</a>
-                </header>
-                <ul class="list-group">
-                    <a class="list-group-item">Link 1</a>
-                    <a class="list-group-item">Link 2</a>
-                    <a class="list-group-item">Link 3</a>
-                </ul>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg d-flex justify-content-between">
+            <!-- Telas Menores -->
+            <div class="btn-group-sm d-md-none">
+                <button type="button" class="btn btn-info ava-btn">
+                    <span class="sr-only">Favoritos</span>
+                    <i class="material-icons">grade</i>
+                </button>
+                <button type="button" class="btn btn-info ava-btn">
+                    <span class="sr-only">Trocar de Tema</span>
+                    <i class="material-icons">wb_sunny</i>
+                </button>
             </div>
-            <main class="bmd-layout-content">
-                <div class="container">
-                    <div id="cardPlace"></div>
-                    <div class="row">
-                        <!--Small Screens-->
-                        <div class="col-10 text-right d-md-none">
-                            <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
-                        <!--Bigger Screens-->
-                        <div class="col-11 text-right d-none d-md-block">
-                            <button type="button" class="btn btn-info bmd-btn-fab border border-dark" id="addBtn" data-toggle="modal" data-target="#addContact">
-                                <i class="material-icons">add</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </main>
+            <!-- Telas Maiores -->
+            <div class="btn-group-lg d-none d-md-block">
+                <button type="button" class="btn btn-info ava-btn">
+                    <span class="sr-only">Favoritos</span>
+                    <i class="material-icons">grade</i>
+                </button>
+                <button type="button" class="btn btn-info ava-btn">
+                    <span class="sr-only">Trocar de Tema</span>
+                    <i class="material-icons">wb_sunny</i>
+                </button>
+            </div>
+
+            <a href="index.html">
+                <span class="sr-only">Logo</span>
+                <img src="assets/ava.png" height="80" width="80">
+            </a>
+
+            <!-- Telas Menores -->
+            <div class="btn-group-sm d-md-none">
+                <!-- Gambiarrinha de leve -->
+                <button type="button" class="btn btn-info ava-btn" style="visibility: hidden">
+                    <span class="sr-only">Espaço vazio</span>
+                    <i class="material-icons">search</i>
+                </button>
+                <button type="button" class="btn btn-info ava-btn">
+                    <span class="sr-only">Pesquisa</span>
+                    <i class="material-icons">search</i>
+                </button>
+            </div>
+            <!-- Telas Maiores -->
+            <div class="btn-group-lg d-none d-md-block">
+                <!-- Gambiarrinha de leve -->
+                <button type="button" class="btn btn-info ava-btn" style="visibility: hidden">
+                    <span class="sr-only">Espaço vazio</span>
+                    <i class="material-icons">search</i>
+                </button>
+                <button type="button" class="btn btn-info ava-btn">
+                    <span class="sr-only">Pesquisa</span>
+                    <i class="material-icons">search</i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="cardPlace"></div>
+        <div class="row">
+            <!--Small Screens-->
+            <div class="col-10 text-right d-md-none">
+                <button type="button" class="btn btn-info
+                        bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+            <!--Bigger Screens-->
+            <div class="col-11 text-right d-none d-md-block">
+                <button type="button" class="btn btn-info
+                        bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
         </div>
     </div>
 </body>
@@ -88,7 +114,8 @@
                 <form>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="profileImg">Imagem de Perfil</span>
+                            <span class="input-group-text" id="profileImg">Imagem
+                                    de Perfil</span>
                         </div>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="profileImg" aria-describedby="profileImg">

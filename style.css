@@ -1,20 +1,30 @@
 body {
-    background-color: darkgrey;
+    background-color: #104E8B;
+}
+
+.ava-btn {
+    background-color: #104E8B !important;
+    color: white !important;
+}
+
+nav {
+    background: black;
+    background-color: black;
+}
+
+header i {
+    margin-top: 9px;
 }
 
 #addBtn {
     position: fixed;
     bottom: 0px;
-    background-color: #104E8B;
-}
-
-#header {
-    background-color: black
-}
-
-#header button {
-    background-color: #104E8B;
     color: white;
+    background-color: black;
+}
+
+#cardPlace {
+    margin-top: 100px;
 }
 
 #cardPlace .row {
