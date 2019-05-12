@@ -1,8 +1,10 @@
-var _contacts = null;
+var _contacts = {
+    list: null
+};
 
 $(document).ready(function($) {
     loadEventListeners();
-    loadSavedData();
+    loadData();
     //TODO: listSavedContacts(); -- Iterar pelo objeto _contacts e ir montando o html com os cards cadastrados
 });
 
@@ -37,44 +39,51 @@ function createContact() {
     return new Contact(name, lastName, email, telephone, tags, picture, isFavorite, observations, type);
 }
 
-function saveContactLocalStorage(contact) {
-    var contactToSave = {
-        'name': contact.name,
-        'lastName': contact.lastName,
-        'email': contact.email,
-        'telephone': contact.telephone,
-        'tags': contact.tags,
-        'picture': contact.picture,
-        'isFavorite': contact.isFavorite,
-        'observations': contact.observations,
-        'type': contact.type
-    }
-
-    _contacts.push(contactToSave);
-    localStorage.setItem('contacts', JSON.stringify(_contacts));
+function saveContact() {
+    contactToSave = createContact();
+    _contacts.list.push(contactToSave);
+    localStorage.setItem('contacts', JSON.stringify(_contacts.list));
+    insertContactCard(contactToSave);
 };
 
 function loadEventListeners() {
 
     $('#addContact').on('shown.bs.modal', function() {
-        $('#addBtn').trigger('focus')
+        $('#addBtn').trigger('focus');
     });
 
     $('#confirmAdd').on('click', function() {
-        var newContact = createContact();
-        saveContactLocalStorage(newContact);
+        saveContact();
     });
 
     loadFieldMasks();
 }
 
-function loadSavedData() {
+function loadData() {
     if (!localStorage.contacts)
-        _contacts = defaultData;
+        _contacts.list = defaultData;
     else
-        _contacts = JSON.parse(localStorage.contacts);
+        _contacts.list = JSON.parse(localStorage.contacts);
+
+    _contacts.list.forEach(contact => {
+        insertContactCard(contact);
+    });
+
 }
 
 function loadFieldMasks() {
     $('#telephone').mask('(99) 99999-9999');
+}
+
+function insertContactCard(contact) {
+    $("#cardPlace").append(
+        `<div class="row"><div class="col-12"><div class="card"> 
+            <div class="card-body">
+                <h5 class="card-title">` + contact.name + `</h5>
+                <p class="card-text">LastName: ` + contact.lastName + `</p>
+                <p class="card-text">Email: ` + contact.email + `</p>
+                <p class="card-text">Telephone: ` + contact.telephone + `</p>
+                <p class="card-text">observations: ` + contact.observations + `</p>
+            </div>
+        </div></div></div>`);
 }
