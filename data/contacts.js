@@ -4,7 +4,7 @@ var defaultData = [{
         'email': 'testeteste@gmail.com',
         'telephone': '12345678',
         'tags': ['tagTeste1', 'tagTeste2'],
-        'picture': 'implementacaoFutura',
+        'picture': '',
         'isFavorite': 'true',
         'observations': 'observacao Testeeeee',
         'type': 'Cliente'
@@ -16,7 +16,7 @@ var defaultData = [{
         'email': 'testeteste2@gmail.com',
         'telephone': '22345678',
         'tags': ['tagTeste3', 'tagTeste4'],
-        'picture': 'implementacaoFutura2',
+        'picture': '',
         'isFavorite': 'false',
         'observations': 'observacao Teste2',
         'type': 'Cliente'

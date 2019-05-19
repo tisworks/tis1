@@ -28,7 +28,7 @@ function createContact() {
     //TODO Alterar de acordo com a implementacao final
     tags = "";
     //TODO Alterar de acordo com a implementacao final
-    picture = "";
+    picture = document.getElementById('profileImg').value;
     isFavorite = $('#favorite').is(':checked');
     observations = document.getElementById("observations").value;
     //TODO Alterar de acordo com a implementacao final
@@ -52,8 +52,11 @@ function loadEventListeners() {
 
     $('#confirmAdd').on('click', function() {
         saveContact();
+        imageConverterEvent();
+
     });
 
+    imageConverterEvent();
     loadFieldMasks();
 }
 
@@ -67,6 +70,11 @@ function loadData() {
         insertContactCard(contact);
     });
 
+}
+
+function imageConverterEvent() {
+    var element = document.getElementById("profileImgFile");
+    element.addEventListener('change', loadimage, false);
 }
 
 function loadFieldMasks() {
@@ -87,7 +95,7 @@ function insertContactCard(contact) {
                 <div class="col-3">
                     <div class="card h-100">
                         <div class="card-body">
-                            <img src="assets/skull.png" alt="Imagem do Contato">
+                            <img src="` + contact.picture + `" alt="Imagem do Contato">
                         </div>
                     </div>
                 </div>
@@ -130,7 +138,7 @@ function insertContactCard(contact) {
                 <i class="material-icons">grade</i>
             </button>
             <div class="text-center">
-                <img class="card-img-top" src="assets/skull.png" alt="Imagem do Contato">
+                <img class="card-img-top" src="` + contact.picture + `" alt="Imagem do Contato">
             </div>
             <div class="card-body">
                 <h5 class="card-title">` + contact.name + " " + contact.lastName + `</h5>
@@ -150,4 +158,17 @@ function insertContactCard(contact) {
             </div>
         </div>
     </div>`);
+}
+
+function loadimage(e1) {
+    var filename = e1.target.files[0];
+    var fr = new FileReader();
+    fr.onload = imageHandler;
+    fr.readAsDataURL(filename);
+}
+
+function imageHandler(e2) {
+    var store = document.getElementById('profileImg');
+    store.value = e2.target.result;
+
 }
