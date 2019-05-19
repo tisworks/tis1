@@ -1,24 +1,24 @@
 var defaultData = [{
-        'name': 'NameTeste',
-        'lastName': 'LasNameTeste',
-        'email': 'testeteste@gmail.com',
-        'telephone': '12345678',
-        'tags': ['tagTeste1', 'tagTeste2'],
-        'picture': '',
+        'name': 'João',
+        'lastName': 'Pereira',
+        'email': 'joao.pereira@outlook.com',
+        'telephone': '31992323344',
+        'tags': ['Colaborador', 'Gestor'],
+        'picture': 'implementacaoFutura',
         'isFavorite': 'true',
-        'observations': 'observacao Testeeeee',
-        'type': 'Cliente'
+        'observations': 'Setor de finanças',
+        'type': 'Colaborador'
     },
 
     {
-        'name': 'NameTeste2',
-        'lastName': 'LasNameTeste2',
-        'email': 'testeteste2@gmail.com',
-        'telephone': '22345678',
-        'tags': ['tagTeste3', 'tagTeste4'],
-        'picture': '',
+        'name': 'Aline',
+        'lastName': 'Castro',
+        'email': 'aline.castro@gmail.com',
+        'telephone': '998882282',
+        'tags': ['Cliente'],
+        'picture': 'implementacaoFutura',
         'isFavorite': 'false',
-        'observations': 'observacao Teste2',
+        'observations': 'Atendender com urgencia sempre que ligar',
         'type': 'Cliente'
     },
 ]
