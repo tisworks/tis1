@@ -1,5 +1,5 @@
 var defaultData = [{
-        'contactId': '1',
+        'id': '1',
         'name': 'João',
         'lastName': 'Pereira',
         'email': 'joao.pereira@outlook.com',
@@ -12,7 +12,7 @@ var defaultData = [{
     },
 
     {
-        'contactId': '2',
+        'id': '2',
         'name': 'Aline',
         'lastName': 'Castro',
         'email': 'aline.castro@gmail.com',

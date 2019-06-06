@@ -7,17 +7,42 @@ $(document).ready(function ($) {
     loadEventListeners();
 });
 
-$('#removeTagModal').modal({ show: false})
+function modaltrigger(contactId) {
 
-function modaltrigger() {
-    $('#removeTagBody').html()
+    // Encontra o contato pelo id passado
+    let contact = _contacts.find( (e) => {
+        return e.id == contactId
+    });
 
-    removeTagModal.modal('show');
+    let toBeInserted = "";
+    contact.tags.forEach((e) => {
+        toBeInserted +=
+            `<button type="button" class="list-group-item list-group-item-action" 
+                onclick="removeTag(1, Gestor)">${e}</button>`
+    });
+
+    $('#removeTagBody').html(toBeInserted);
+    $('#removeTagModal').modal('show');
+}
+
+//removeTag(${contactId}, ${e})
+
+function removeTag(contactId, tag) {
+    // Encontra o contato pelo id passado
+    let contact = _contacts.find( (e) => {
+        return e.id == contactId
+    });
+
+    for(let i=0; i<contact.tag.length; i++) {
+        if(contact.tag[i] === tag) {
+            contact.tag.splice(i, 1);
+        }
+    }
 }
 
 class Contact {
-    constructor(contactId, name, lastName, email, telephone, tags, picture, isFavorite, observations, type) {
-        this.contactId = contactId;
+    constructor(id, name, lastName, email, telephone, tags, picture, isFavorite, observations, type) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -56,7 +81,7 @@ function createContact() {
 function saveContact() {
     contactToSave = createContact();
 
-    if (!contactToSave.contactId || !contactToSave.name || !contactToSave.email || !contactToSave.telephone)
+    if (!contactToSave.id || !contactToSave.name || !contactToSave.email || !contactToSave.telephone)
         return
 
     _contacts.push(contactToSave);
@@ -123,6 +148,7 @@ function addTag() {
     }
 }
 
+// TODO remove contract ID from button
 function insertContactCard(contact) {
     let contactTagsHtml = "";
 
@@ -163,16 +189,16 @@ function insertContactCard(contact) {
                             <br>
                             <div class="row">
                                 <div class="col-3">
-                                    <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
+                                    <button type="button"  id="${contact.id}" class="btn ava-btn add-tag-modal" 
                                     data-toggle="modal" data-target="#insertTagModal">
                                         <span class="sr-only">Adicionar Tag</span>
                                         <i class="material-icons">add</i>
                                     </button>
                                     
                                     <button type="button" class="btn ava-btn" 
-                                    onclick="modaltrigger()" n>
+                                    onclick="modaltrigger(${contact.id})">
                                         <span class="sr-only">Deletar Tag</span>
-                                        <i class="material-icons">delete_sweep</i>
+                                        <i class="material-icons">delete</i>
                                     </button>
                                 </div>
                             </div>
