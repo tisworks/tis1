@@ -7,6 +7,10 @@ $(document).ready(function ($) {
     loadEventListeners();
 });
 
+$("#removeTagModal").on("shown.bs.modal", function () {
+    alert('Hi');
+});
+
 class Contact {
     constructor(contactId, name, lastName, email, telephone, tags, picture, isFavorite, observations, type) {
         this.contactId = contactId;
@@ -110,8 +114,6 @@ function addTag() {
     }
 }
 
-//TODO
-//Alterar layout de acordo com isFavorite
 function insertContactCard(contact) {
     let contactTagsHtml = "";
 
@@ -120,6 +122,9 @@ function insertContactCard(contact) {
     })
 
     $("#cardPlace").append(`
+        <br>
+
+        <!-- Telas Maiores -->
         <div class="d-none d-xl-block">
             <div class="row row-eq-height">
                 <div class="col-3">
@@ -150,9 +155,13 @@ function insertContactCard(contact) {
                             <div class="row">
                                 <div class="col-3">
                                     <button type="button" class="btn ava-btn add-tag-modal" 
-                                    data-toggle="modal" data-target="#insertTagModal">Tag</button>
-                                    <button type="button" class="btn ava-btn add-tag-modal" 
                                     data-toggle="modal" data-target="#insertTagModal">
+                                        <span class="sr-only">Adicionar Tag</span>
+                                        <i class="material-icons">add</i>
+                                    </button>
+                                    
+                                    <button type="button" class="btn ava-btn" 
+                                    data-toggle="modal" data-target="#removeTagModal">
                                         <span class="sr-only">Deletar Tag</span>
                                         <i class="material-icons">delete_sweep</i>
                                     </button>
@@ -164,6 +173,7 @@ function insertContactCard(contact) {
             </div>
         </div>
 
+        <!-- Telas Menores -->
         <div class="card d-xl-none">
         <button type="button" class="btn btn-info ava-btn">
             <span class="sr-only">Favorito</span>
@@ -202,5 +212,4 @@ function loadimage(e1) {
 function imageHandler(e2) {
     var store = document.getElementById('profileImg');
     store.value = e2.target.result;
-
 }

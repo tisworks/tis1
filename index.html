@@ -5,18 +5,26 @@
     <meta charset="utf-8">
     <title>AVA - Agenda Virtual</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <link rel="shortcut icon" href="assets/favicon.ico"/>
     <!--CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!--JS-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+            integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+            integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('body').bootstrapMaterialDesign();
         });
     </script>
@@ -25,82 +33,82 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar fixed-top navbar-expand-lg d-flex justify-content-between">
-            <!-- Telas Menores -->
-            <div class="btn-group-sm d-md-none">
-                <button type="button" class="btn btn-info ava-btn">
-                    <span class="sr-only">Favoritos</span>
-                    <i class="material-icons">grade</i>
-                </button>
-                <button type="button" class="btn btn-info ava-btn">
-                    <span class="sr-only">Trocar de Tema</span>
-                    <i class="material-icons">wb_sunny</i>
-                </button>
-            </div>
-            <!-- Telas Maiores -->
-            <div class="btn-group-lg d-none d-md-block">
-                <button type="button" class="btn btn-info ava-btn">
-                    <span class="sr-only">Favoritos</span>
-                    <i class="material-icons">grade</i>
-                </button>
-                <button type="button" class="btn btn-info ava-btn">
-                    <span class="sr-only">Trocar de Tema</span>
-                    <i class="material-icons">wb_sunny</i>
-                </button>
-            </div>
-
-            <a href="index.html">
-                <span class="sr-only">Logo</span>
-                <img src="assets/ava.png" height="80" width="80">
-            </a>
-
-            <!-- Telas Menores -->
-            <div class="btn-group-sm d-md-none">
-                <!-- Gambiarrinha de leve -->
-                <button type="button" class="btn btn-info ava-btn" style="visibility: hidden">
-                    <span class="sr-only">Espaço vazio</span>
-                    <i class="material-icons">search</i>
-                </button>
-                <button type="button" class="btn btn-info ava-btn">
-                    <span class="sr-only">Pesquisa</span>
-                    <i class="material-icons">search</i>
-                </button>
-            </div>
-            <!-- Telas Maiores -->
-            <div class="btn-group-lg d-none d-md-block">
-                <!-- Gambiarrinha de leve -->
-                <button type="button" class="btn btn-info ava-btn" style="visibility: hidden">
-                    <span class="sr-only">Espaço vazio</span>
-                    <i class="material-icons">search</i>
-                </button>
-                <button type="button" class="btn btn-info ava-btn">
-                    <span class="sr-only">Pesquisa</span>
-                    <i class="material-icons">search</i>
-                </button>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <div id="cardPlace">
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg d-flex justify-content-between">
+        <!-- Telas Menores -->
+        <div class="btn-group-sm d-md-none">
+            <button type="button" class="btn btn-info ava-btn">
+                <span class="sr-only">Favoritos</span>
+                <i class="material-icons">grade</i>
+            </button>
+            <button type="button" class="btn btn-info ava-btn">
+                <span class="sr-only">Trocar de Tema</span>
+                <i class="material-icons">wb_sunny</i>
+            </button>
         </div>
-        <div class="row">
-            <!-- Telas Menores -->
-            <div class="col-10 text-right d-md-none">
-                <button type="button" class="btn btn-info
+        <!-- Telas Maiores -->
+        <div class="btn-group-lg d-none d-md-block">
+            <button type="button" class="btn btn-info ava-btn">
+                <span class="sr-only">Favoritos</span>
+                <i class="material-icons">grade</i>
+            </button>
+            <button type="button" class="btn btn-info ava-btn">
+                <span class="sr-only">Trocar de Tema</span>
+                <i class="material-icons">wb_sunny</i>
+            </button>
+        </div>
+
+        <a href="index.html">
+            <span class="sr-only">Logo</span>
+            <img src="assets/ava.png" height="80" width="80">
+        </a>
+
+        <!-- Telas Menores -->
+        <div class="btn-group-sm d-md-none">
+            <!-- Gambiarrinha de leve -->
+            <button type="button" class="btn btn-info ava-btn" style="visibility: hidden">
+                <span class="sr-only">Espaço vazio</span>
+                <i class="material-icons">search</i>
+            </button>
+            <button type="button" class="btn btn-info ava-btn">
+                <span class="sr-only">Pesquisa</span>
+                <i class="material-icons">search</i>
+            </button>
+        </div>
+        <!-- Telas Maiores -->
+        <div class="btn-group-lg d-none d-md-block">
+            <!-- Gambiarrinha de leve -->
+            <button type="button" class="btn btn-info ava-btn" style="visibility: hidden">
+                <span class="sr-only">Espaço vazio</span>
+                <i class="material-icons">search</i>
+            </button>
+            <button type="button" class="btn btn-info ava-btn">
+                <span class="sr-only">Pesquisa</span>
+                <i class="material-icons">search</i>
+            </button>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div id="cardPlace">
+    </div>
+    <div class="row">
+        <!-- Telas Menores -->
+        <div class="col-10 text-right d-md-none">
+            <button type="button" class="btn btn-info
                             bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
-                    <i class="material-icons">add</i>
-                </button>
-            </div>
-            <!-- Telas Maiores -->
-            <div class="col-11 text-right d-none d-md-block">
-                <button type="button" class="btn btn-info
+                <i class="material-icons">add</i>
+            </button>
+        </div>
+        <!-- Telas Maiores -->
+        <div class="col-11 text-right d-none d-md-block">
+            <button type="button" class="btn btn-info
                             bmd-btn-fab" id="addBtn" data-toggle="modal" data-target="#addContact">
-                    <i class="material-icons">add</i>
-                </button>
-            </div>
+                <i class="material-icons">add</i>
+            </button>
         </div>
     </div>
+</div>
 </body>
 
 <!-- Modal de Inscrição -->
@@ -120,13 +128,16 @@
                         <label class="custom-file-label" for="profileImg">Imagem de Perfil</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" aria-describedby="" placeholder="Nome" required aria-required="true" maxlength="25">
+                        <input type="text" class="form-control" id="name" aria-describedby="" placeholder="Nome"
+                               required aria-required="true" maxlength="25">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="lastName" aria-describedby="" placeholder="Sobrenome" required aria-required="true" maxlength="25">
+                        <input type="text" class="form-control" id="lastName" aria-describedby=""
+                               placeholder="Sobrenome" required aria-required="true" maxlength="25">
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" id="telephone" aria-describedby="" placeholder="Telefone: (XX) XXXXX-XXXX" required aria-required="true">
+                        <input type="tel" class="form-control" id="telephone" aria-describedby=""
+                               placeholder="Telefone: (XX) XXXXX-XXXX" required aria-required="true">
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" id="email" placeholder="Email">
@@ -146,16 +157,17 @@
                         </div>
 
 
-                    <!--VictorRadioButton-->
-                    <div cass="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                          <input type="radio" name="options" id="ButtonCliente" autocomplete="off"> Cliente
-                        </label>
-                        <label class="btn btn-secondary">
-                          <input type="radio" name="options" id="ButtonColaborador" autocomplete="off"> Colaborador
-                        </label>
-                      </div>
-                     <!--VictorRadioButton-->
+                        <!--VictorRadioButton-->
+                        <div cass="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="options" id="ButtonCliente" autocomplete="off"> Cliente
+                            </label>
+                            <label class="btn btn-secondary">
+                                <input type="radio" name="options" id="ButtonColaborador" autocomplete="off">
+                                Colaborador
+                            </label>
+                        </div>
+                        <!--VictorRadioButton-->
 
 
                     </div>
@@ -165,26 +177,28 @@
                         <button type="submit" class="btn btn-primary" id='confirmAdd'>Adicionar</button>
                     </div>
                 </form>
-                </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 
 <!-- Modal de Inscrição de tags-->
-<div class="modal fade" id="insertTagModal" tabindex="-1" role="dialog" aria-labelledby="insertTagModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+<div class="modal fade" id="insertTagModal" tabindex="-1" role="dialog" aria-labelledby="insertTagModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="insertTagModalLabel">Inserir tag</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title" id="insertTagModalLabel">Inserir tag</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="new-tag-name" aria-describedby="" placeholder="Nome da tag" required aria-required="true" maxlength="10">
+                        <input type="text" class="form-control" id="new-tag-name" aria-describedby=""
+                               placeholder="Nome da tag" required aria-required="true" maxlength="10">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -192,7 +206,35 @@
                     </div>
                 </form>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
+
+<!-- Modal de Remocao de tags -->
+<div class="modal fade" id="removeTagModal" tabindex="-1" role="dialog" aria-labelledby="insertTagModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Remover TAG</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="todo" aria-describedby=""
+                               placeholder="Nome da tag" required aria-required="true" maxlength="10">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" id='confirmRemoveTag' class="btn btn-primary">Remover</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </html>
