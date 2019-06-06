@@ -7,9 +7,13 @@ $(document).ready(function ($) {
     loadEventListeners();
 });
 
-$("#removeTagModal").on("shown.bs.modal", function () {
-    alert('Hi');
-});
+$('#removeTagModal').modal({ show: false})
+
+function modaltrigger() {
+    $('#removeTagBody').html()
+
+    removeTagModal.modal('show');
+}
 
 class Contact {
     constructor(contactId, name, lastName, email, telephone, tags, picture, isFavorite, observations, type) {
@@ -154,14 +158,14 @@ function insertContactCard(contact) {
                             <br>
                             <div class="row">
                                 <div class="col-3">
-                                    <button type="button" class="btn ava-btn add-tag-modal" 
+                                    <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
                                     data-toggle="modal" data-target="#insertTagModal">
                                         <span class="sr-only">Adicionar Tag</span>
                                         <i class="material-icons">add</i>
                                     </button>
                                     
                                     <button type="button" class="btn ava-btn" 
-                                    data-toggle="modal" data-target="#removeTagModal">
+                                    onclick="modaltrigger()" n>
                                         <span class="sr-only">Deletar Tag</span>
                                         <i class="material-icons">delete_sweep</i>
                                     </button>
