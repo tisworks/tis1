@@ -38,6 +38,11 @@ function createContact() {
     telephone = document.getElementById("telephone").value;
     //TODO Alterar de acordo com a implementacao final
     tags = new Array();
+    if(document.getElementsByName("options")[0].checked == true){
+        tags.push("Colaborador");
+    } else if(document.getElementsByName("options")[1].checked == true){
+        tags.push("Cliente");
+    }
     //TODO Alterar de acordo com a implementacao final
     picture = document.getElementById('profileImg').value;
     isFavorite = $('#favorite').is(':checked');
