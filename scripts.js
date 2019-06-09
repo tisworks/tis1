@@ -71,7 +71,7 @@ function removeTagModalTrigger(contactId) {
 }
 
 // Acao realizada ao remover as tags
-function removeTagAction() {
+function removeTag() {
     let contact = findContact(_currentContactId);
 
     $.each($("input[name='removeTagsCheck']:checked"), function(){
@@ -165,7 +165,7 @@ function addTag() {
     if (contactTags.length == _tagMax)
         alert("Um contato não pode possuir mais do que " + _tagMax.toString(10) + " tags. remova alguma para inserir uma nova.");
     else {
-        var tagName = document.getElementById("new-tag-name").value
+        var tagName = document.getElementById("newTagName").value
         if (!tagName)
             return
 
