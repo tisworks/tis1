@@ -45,3 +45,29 @@ header i {
 .container {
     margin-top: 100px;
 }
+
+/* Sobrescrevendo bootstrap */
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #104E8B!important;
+}
+
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem black
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: black;
+}
+
+.modal-header {
+    background-color: #104E8B;
+    color: white;
+}
+
+.modal-footer {
+    background-color: #104E8B;
+    color: white;
+}
+

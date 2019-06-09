@@ -1,45 +1,4 @@
-var _contacts = null;
-var _tagMax = 4; //Numero máximo de tags permitidas em um contato (falta saber qual é o valor ideal)
-var _currentContactId; //Variável global para faciltiar acesso ao contato sendo alterado em um momento específico
-
-$(document).ready(function ($) {
-    loadData();
-    loadEventListeners();
-});
-
-function modaltrigger(contactId) {
-
-    // Encontra o contato pelo id passado
-    let contact = _contacts.find( (e) => {
-        return e.id == contactId
-    });
-
-    let toBeInserted = "";
-    contact.tags.forEach((e) => {
-        toBeInserted +=
-            `<button type="button" class="list-group-item list-group-item-action" 
-                onclick="removeTag(1, Gestor)">${e}</button>`
-    });
-
-    $('#removeTagBody').html(toBeInserted);
-    $('#removeTagModal').modal('show');
-}
-
-//removeTag(${contactId}, ${e})
-
-function removeTag(contactId, tag) {
-    // Encontra o contato pelo id passado
-    let contact = _contacts.find( (e) => {
-        return e.id == contactId
-    });
-
-    for(let i=0; i<contact.tag.length; i++) {
-        if(contact.tag[i] === tag) {
-            contact.tag.splice(i, 1);
-        }
-    }
-}
-
+// Entidade
 class Contact {
     constructor(id, name, lastName, email, telephone, tags, picture, isFavorite, observations, type) {
         this.id = id;
@@ -55,25 +14,96 @@ class Contact {
     }
 }
 
+// Globais
+let _contacts = null; // Contatos carregados na memoria
+let  _tagMax = 4; // Numero máximo de tags permitidas em um contato
+let _currentContactId; // Facilita o acesso ao contato
+
+// Inicializa a aplicacao
+$(document).ready(function ($) {
+    loadData();
+    loadEventListeners();
+});
+
+
+
+// Encontra o contato pelo id passado
+function findContact(contactId) {
+    return _contacts.find( (e) => {
+        return e.id == contactId;
+    });
+}
+
+// Atualiza o contato passado na memoria e no local storage
+function updateContact(contact) {
+    for(let i=0; i<_contacts.length; i++) {
+        if(_contacts[i].id == contact.id) {
+            _contacts[i] = contact;
+        }
+    }
+
+    localStorage.setItem('contacts', JSON.stringify(_contacts));
+}
+
+
+
+// Funcao do botao de remover tag
+function removeTagModalTrigger(contactId) {
+    _currentContactId = contactId;
+    let contact = findContact(contactId);
+
+    let toBeInserted = "";
+    for(let i=1; i<contact.tags.length; i++) {
+        toBeInserted +=
+            `<div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="${contact.tags[i]}" 
+                value="${contact.tags[i]}" name="removeTagsCheck">
+            <label class="custom-control-label" for="${contact.tags[i]}">${contact.tags[i]}</label>
+         </div>`;
+
+        if(i != contact.tags.length-1) {
+            toBeInserted += `<br>`;
+        }
+    }
+
+    $('#removeTagBoxes').html(toBeInserted);
+    $('#removeTagModal').modal('show');
+}
+
+// Acao realizada ao remover as tags
+function removeTagAction() {
+    let contact = findContact(_currentContactId);
+
+    $.each($("input[name='removeTagsCheck']:checked"), function(){
+        for( let i = 0; i < contact.tags.length; i++){
+            if ( contact.tags[i] === $(this).val()) {
+                contact.tags.splice(i, 1);
+            }
+        }
+    });
+
+    updateContact(contact);
+    location.reload();
+}
+
+
 function createContact() {
-    contactId = _contacts.length + 1;
-    name = document.getElementById("name").value;
-    lastName = document.getElementById("lastName").value;
-    email = document.getElementById("email").value;
-    telephone = document.getElementById("telephone").value;
-    //TODO Alterar de acordo com a implementacao final
-    tags = new Array();
+    let contactId = _contacts.length + 1;
+    let name = document.getElementById("name").value;
+    let lastName = document.getElementById("lastName").value;
+    let email = document.getElementById("email").value;
+    let telephone = document.getElementById("telephone").value;
+
+    let tags = new Array();
     if(document.getElementsByName("options")[0].checked == true){
         tags.push("Colaborador");
-    } else if(document.getElementsByName("options")[1].checked == true){
+    } else {
         tags.push("Cliente");
     }
-    //TODO Alterar de acordo com a implementacao final
-    picture = document.getElementById('profileImg').value;
-    isFavorite = $('#favorite').is(':checked');
-    observations = document.getElementById("observations").value;
-    //TODO Alterar de acordo com a implementacao final
-    type = "";
+
+    let picture = document.getElementById('profileImg').value;
+    let isFavorite = $('#favorite').is(':checked');
+    let observations = document.getElementById("observations").value;
 
     return new Contact(contactId.toString(10), name, lastName, email, telephone, tags, picture, isFavorite, observations, type);
 }
@@ -196,7 +226,7 @@ function insertContactCard(contact) {
                                     </button>
                                     
                                     <button type="button" class="btn ava-btn" 
-                                    onclick="modaltrigger(${contact.id})">
+                                    onclick="removeTagModalTrigger(${contact.id})">
                                         <span class="sr-only">Deletar Tag</span>
                                         <i class="material-icons">delete</i>
                                     </button>
