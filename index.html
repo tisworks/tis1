@@ -182,35 +182,25 @@
 </div>
 
 <!-- Modal de Inscrição de tags-->
-<div class="modal fade" id="insertTagModal" tabindex="-1" role="dialog" aria-labelledby="insertTagModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="insertTagModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="insertTagModalLabel">Inserir tag</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title">Insira o segmento desejado: </h5>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="new-tag-name" aria-describedby=""
-                               placeholder="Nome da tag" required aria-required="true" maxlength="10">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" id='confirmAddTag' class="btn btn-primary">Adicionar tag</button>
-                    </div>
-                </form>
+                <input type="text" id="new-tag-name" placeholder="Segmento" maxlength="10">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn ava-btn" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn ava-btn" onclick="addTag()">Adicionar</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Modal de Remocao de tags -->
-<div class="modal fade" id="removeTagModal" tabindex="-1" role="dialog" aria-labelledby="insertTagModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="removeTagModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -219,7 +209,7 @@
             <div class="modal-body" id="removeTagBoxes"></div>
             <div class="modal-footer">
                 <button type="button" class="btn ava-btn" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn ava-btn" onclick="removeTagAction()">Remover</button>
+                <button type="button" class="btn ava-btn" onclick="removeTagAction()">Remover</button>
             </div>
         </div>
     </div>

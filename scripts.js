@@ -130,10 +130,6 @@ function loadEventListeners() {
         imageConverterEvent();
     });
 
-    $('#confirmAddTag').on('click', function () {
-        addTag();
-    });
-
     $('.add-tag-modal').on('click', function () {
         _currentContactId = parseInt(this.id, 10)
     });
@@ -176,6 +172,8 @@ function addTag() {
         contactTags.push(tagName);
         localStorage.setItem('contacts', JSON.stringify(_contacts));
     }
+
+    location.reload();
 }
 
 // TODO remove contract ID from button
