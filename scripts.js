@@ -217,14 +217,14 @@ function insertContactCard(contact) {
                             <br>
                             <div class="row">
                                 <div class="col-3">
-                                    <button type="button"  id="${contact.id}" class="btn ava-btn add-tag-modal" 
+                                    <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
                                     data-toggle="modal" data-target="#insertTagModal">
                                         <span class="sr-only">Adicionar Tag</span>
                                         <i class="material-icons">add</i>
                                     </button>
                                     
                                     <button type="button" class="btn ava-btn" 
-                                    onclick="removeTagModalTrigger(${contact.id})">
+                                    onclick="removeTagModalTrigger(${contact.contactId})">
                                         <span class="sr-only">Deletar Tag</span>
                                         <i class="material-icons">delete</i>
                                     </button>
