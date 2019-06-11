@@ -130,12 +130,12 @@ function loadEventListeners() {
         imageConverterEvent();
     });
 
-    $('.add-tag-modal').on('click', function () {
-        _currentContactId = parseInt(this.id, 10)
-    });
-
     imageConverterEvent();
     loadFieldMasks();
+}
+
+function updateCurrentContact(id){
+    _currentContactId = parseInt(id, 10);
 }
 
 function loadData() {
@@ -222,8 +222,8 @@ function insertContactCard(contact) {
                             <br>
                             <div class="row">
                                 <div class="col-10">
-                                    <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
-                                    data-toggle="modal" data-target="#insertTagModal">
+                                    <button type="button" onclick="updateCurrentContact(${contact.contactId})" 
+                                    class="btn ava-btn add-tag-modal" data-toggle="modal" data-target="#insertTagModal">
                                         <span class="sr-only">Adicionar Tag</span>
                                         <i class="material-icons">add</i>
                                     </button>
@@ -263,8 +263,8 @@ function insertContactCard(contact) {
             <br>
             <div class="row">
                 <div class="col-9">
-                    <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
-                    data-toggle="modal" data-target="#insertTagModal">
+                    <button type="button" onclick="updateCurrentContact(${contact.contactId})"
+                    class="btn ava-btn add-tag-modal" data-toggle="modal" data-target="#insertTagModal">
                         <span class="sr-only">Adicionar Tag</span>
                         <i class="material-icons">add</i>
                     </button>
