@@ -179,9 +179,14 @@ function addTag() {
 // TODO remove contract ID from button
 function insertContactCard(contact) {
     let contactTagsHtml = "";
+    let responsiveContactTagsHtml = "";
 
     contact.tags.forEach((tag) => {
         contactTagsHtml += `<div class="col-3"><span><h5>${tag}</h5></span></div>`;
+    })
+
+    contact.tags.forEach((tag) => {
+        responsiveContactTagsHtml += `<div class="col-3"><span><h6>${tag}</h6></span></div>`;
     })
 
     $("#cardPlace").append(`
@@ -243,21 +248,26 @@ function insertContactCard(contact) {
             <i class="material-icons">grade</i>
         </button>
         <div class="text-center">
-            <img class="card-img-top" src="\` + contact.picture + \`" alt="Imagem do Contato">
+            <img class="card-img-top" src="${contact.picture}" alt="Imagem do Contato">
         </div>
         <div class="card-body">
-            <h5 class="card-title">\` + contact.name + " " + contact.lastName + \`</h5>
-            <h6 class="card-text "><b>Tel:</b>\` + contact.telephone + \`</h6>
-            <h6 class="card-text "><b>Email:</b>\` + contact.email + \`</h6>
+            <h5 class="card-title">${contact.name} ${contact.lastName}</h5>
+            <h6 class="card-text "><b>Tel:</b>${contact.telephone}</h6>
+            <h6 class="card-text "><b>Email:</b>${contact.email}</h6>
+            <div class="row responsive-tag-place">${responsiveContactTagsHtml}</div>
+            <br>
             <div class="row">
-                <div class="col-4">
-                    <span><h6>Cliente</h6></span>
-                </div>
-                <div class="col-4">
-                    <span><h6>Tag1</h6></span>
-                </div>
-                <div class="col-4">
-                    <span><h6>Tag2</h6></span>
+                <div class="col-3">
+                    <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
+                    data-toggle="modal" data-target="#insertTagModal">
+                        <span class="sr-only">Adicionar Tag</span>
+                        <i class="material-icons">add</i>
+                    </button>
+                    <button type="button" class="btn ava-btn" 
+                    onclick="removeTagModalTrigger(${contact.contactId})">
+                        <span class="sr-only">Deletar Tag</span>
+                        <i class="material-icons">delete</i>
+                    </button>
                 </div>
             </div>
         </div>
