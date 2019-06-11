@@ -221,17 +221,22 @@ function insertContactCard(contact) {
                             <div class="row tag-place">${contactTagsHtml}</div>
                             <br>
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col-10">
                                     <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
                                     data-toggle="modal" data-target="#insertTagModal">
                                         <span class="sr-only">Adicionar Tag</span>
                                         <i class="material-icons">add</i>
                                     </button>
-                                    
                                     <button type="button" class="btn ava-btn" 
                                     onclick="removeTagModalTrigger(${contact.contactId})">
                                         <span class="sr-only">Deletar Tag</span>
                                         <i class="material-icons">delete</i>
+                                    </button>
+                                </div>
+                                <div class="col-1">
+                                    <button type="button" class="btn ava-btn">
+                                        <span class="sr-only">Editar contato</span>
+                                        <i class="material-icons">edit</i>
                                     </button>
                                 </div>
                             </div>
@@ -257,7 +262,7 @@ function insertContactCard(contact) {
             <div class="row responsive-tag-place">${responsiveContactTagsHtml}</div>
             <br>
             <div class="row">
-                <div class="col-3">
+                <div class="col-9">
                     <button type="button"  id="${contact.contactId}" class="btn ava-btn add-tag-modal" 
                     data-toggle="modal" data-target="#insertTagModal">
                         <span class="sr-only">Adicionar Tag</span>
@@ -267,6 +272,12 @@ function insertContactCard(contact) {
                     onclick="removeTagModalTrigger(${contact.contactId})">
                         <span class="sr-only">Deletar Tag</span>
                         <i class="material-icons">delete</i>
+                    </button>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn ava-btn">
+                        <span class="sr-only">Editar contato</span>
+                        <i class="material-icons">edit</i>
                     </button>
                 </div>
             </div>
