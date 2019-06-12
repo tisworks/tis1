@@ -138,6 +138,20 @@ function updateCurrentContact(id){
     _currentContactId = parseInt(id, 10);
 }
 
+function loadContact(id){
+    updateCurrentContact(id);
+    var contact = _contacts[_currentContactId - 1];
+
+    document.getElementById("name").value = contact.name;
+    document.getElementById("lastName").value = contact.lastName;
+    document.getElementById("email").value = contact.email;
+    document.getElementById("telephone").value = contact.telephone;
+    //document.getElementById('profileImg').value = loadimage(contact.picture);
+    //$('#favorite').is(':checked');
+    document.getElementById("observations").value = contact.observations;
+    //TODO: CARREGAR OS DADOS DO CONTATO NA MODAL DE INSERÇÃO PARA POSSIBILITAR EDIÇÃO
+}
+
 function loadData() {
     if (!localStorage.contacts)
         _contacts = defaultData;
@@ -176,7 +190,6 @@ function addTag() {
     location.reload();
 }
 
-// TODO remove contract ID from button
 function insertContactCard(contact) {
     let contactTagsHtml = "";
     let responsiveContactTagsHtml = "";
@@ -234,7 +247,8 @@ function insertContactCard(contact) {
                                     </button>
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn ava-btn">
+                                    <button type="button" class="btn ava-btn" 
+                                    onclick="updateCurrentContact(${contact.contactId})>
                                         <span class="sr-only">Editar contato</span>
                                         <i class="material-icons">edit</i>
                                     </button>
@@ -275,7 +289,8 @@ function insertContactCard(contact) {
                     </button>
                 </div>
                 <div class="col-1">
-                    <button type="button" class="btn ava-btn">
+                    <button type="button" class="btn ava-btn"
+                    onclick="updateCurrentContact(${contact.contactId})>
                         <span class="sr-only">Editar contato</span>
                         <i class="material-icons">edit</i>
                     </button>
