@@ -92,7 +92,9 @@ function createContact() {
     let name = document.getElementById("name").value;
     let lastName = document.getElementById("lastName").value;
     let email = document.getElementById("email").value;
+    let isFavorite= document.getElementById("favCheck").checked;
     let telephone = document.getElementById("telephone").value;
+    
 
     let tags = new Array();
     let type = "";
@@ -105,7 +107,6 @@ function createContact() {
     }
 
     let picture = document.getElementById('profileImg').value;
-    let isFavorite = $('#favorite').is(':checked');
     let observations = document.getElementById("observations").value;
 
     return new Contact(contactId.toString(10), name, lastName, email, telephone, tags, picture, isFavorite, observations, type);
@@ -168,7 +169,10 @@ function loadEventListeners() {
         saveContact(true);
         imageConverterEvent();
     });
-    
+
+    $('#favCheck').on('click', function () {
+        favoriteCheckbox();
+    });
 
     imageConverterEvent();
     loadFieldMasks();
@@ -236,6 +240,14 @@ function addTag() {
     }
 
     location.reload();
+}
+
+function favoriteCheckbox() {
+    if (document.getElementById("favCheck").checked == true) {
+        document.getElementById("fav").src = "assets/Fav.png";
+    } else if (document.getElementById("favCheck").checked == false) {
+        document.getElementById("fav").src = "assets/NotFav.png";
+    }
 }
 
 function insertContactCard(contact) {

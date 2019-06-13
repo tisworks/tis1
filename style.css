@@ -71,3 +71,10 @@ header i {
     color: white;
 }
 
+#favCheck {
+    display: none
+}
+
+#fav{
+    width: 13%;
+}
