@@ -95,10 +95,13 @@ function createContact() {
     let telephone = document.getElementById("telephone").value;
 
     let tags = new Array();
+    let type = ""
     if(document.getElementsByName("options")[0].checked == true){
         tags.push("Colaborador");
+        type = "Colaborador"
     } else {
         tags.push("Cliente");
+        type = "Cliente"
     }
 
     let picture = document.getElementById('profileImg').value;
@@ -146,21 +149,28 @@ function loadContact(id){
     document.getElementById("lastName").value = contact.lastName;
     document.getElementById("email").value = contact.email;
     document.getElementById("telephone").value = contact.telephone;
-    //document.getElementById('profileImg').value = loadimage(contact.picture);
-    //$('#favorite').is(':checked');
+    $('#favorite').prop("checked", contact.isFavorite);
     document.getElementById("observations").value = contact.observations;
-    //TODO: CARREGAR OS DADOS DO CONTATO NA MODAL DE INSERÇÃO PARA POSSIBILITAR EDIÇÃO
+
+    if(contact.type == "Colaborador"){
+        $("#optionsRadios1").prop("checked", true);
+    } else {
+        $("#optionsRadios2").prop("checked", true);
+    }
+    
+    $('#addContact').modal('show');
 }
 
 function loadData() {
-    if (!localStorage.contacts)
-        _contacts = defaultData;
-    else
+    if(localStorage.contacts){
         _contacts = JSON.parse(localStorage.contacts);
 
-    _contacts.forEach(contact => {
-        insertContactCard(contact);
-    });
+        _contacts.forEach(contact => {
+            insertContactCard(contact);
+        });
+    }
+    else
+        _contacts = new Array();
 
 }
 
@@ -235,21 +245,21 @@ function insertContactCard(contact) {
                             <br>
                             <div class="row">
                                 <div class="col-10">
-                                    <button type="button" onclick="updateCurrentContact(${contact.contactId})" 
+                                    <button type="button" onclick="updateCurrentContact(${contact.id})" 
                                     class="btn ava-btn add-tag-modal" data-toggle="modal" data-target="#insertTagModal">
                                         <span class="sr-only">Adicionar Tag</span>
                                         <i class="material-icons">add</i>
                                     </button>
                                     <button type="button" class="btn ava-btn" 
-                                    onclick="removeTagModalTrigger(${contact.contactId})">
+                                    onclick="removeTagModalTrigger(${contact.id})">
                                         <span class="sr-only">Deletar Tag</span>
                                         <i class="material-icons">delete</i>
                                     </button>
                                 </div>
                                 <div class="col-1">
                                     <button type="button" class="btn ava-btn" 
-                                    onclick="updateCurrentContact(${contact.contactId})>
-                                        <span class="sr-only">Editar contato</span>
+                                    onclick="loadContact(${contact.id})">
+                                        <span class="sr-only"></span>
                                         <i class="material-icons">edit</i>
                                     </button>
                                 </div>
@@ -277,21 +287,21 @@ function insertContactCard(contact) {
             <br>
             <div class="row">
                 <div class="col-9">
-                    <button type="button" onclick="updateCurrentContact(${contact.contactId})"
+                    <button type="button" onclick="updateCurrentContact(${contact.id})"
                     class="btn ava-btn add-tag-modal" data-toggle="modal" data-target="#insertTagModal">
                         <span class="sr-only">Adicionar Tag</span>
                         <i class="material-icons">add</i>
                     </button>
                     <button type="button" class="btn ava-btn" 
-                    onclick="removeTagModalTrigger(${contact.contactId})">
+                    onclick="removeTagModalTrigger(${contact.id})">
                         <span class="sr-only">Deletar Tag</span>
                         <i class="material-icons">delete</i>
                     </button>
                 </div>
                 <div class="col-1">
                     <button type="button" class="btn ava-btn"
-                    onclick="updateCurrentContact(${contact.contactId})>
-                        <span class="sr-only">Editar contato</span>
+                    onclick="loadContact(${contact.id})">
+                        <span class="sr-only"></span>
                         <i class="material-icons">edit</i>
                     </button>
                 </div>
