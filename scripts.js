@@ -95,13 +95,13 @@ function createContact() {
     let telephone = document.getElementById("telephone").value;
 
     let tags = new Array();
-    let type = ""
+    let type = "";
     if(document.getElementsByName("options")[0].checked == true){
         tags.push("Colaborador");
-        type = "Colaborador"
+        type = "Colaborador";
     } else {
         tags.push("Cliente");
-        type = "Cliente"
+        type = "Cliente";
     }
 
     let picture = document.getElementById('profileImg').value;
@@ -111,15 +111,46 @@ function createContact() {
     return new Contact(contactId.toString(10), name, lastName, email, telephone, tags, picture, isFavorite, observations, type);
 }
 
-function saveContact() {
-    contactToSave = createContact();
+function getEditions(contact){
+    contact.name = document.getElementById("edit-name").value;
+    contact.lastName = document.getElementById("edit-lastName").value;
+    contact.email = document.getElementById("edit-email").value;
+    contact.telephone = document.getElementById("edit-telephone").value;
+    contact.picture = document.getElementById('edit-profileImg').value;
+    contact.isFavorite = $('#edit-favorite').is(':checked');
+    contact.observations = document.getElementById("edit-observations").value;
+    if(document.getElementsByName("edit-options")[0].checked == true){
+        contact.type = "Colaborador";
+        for(var i = 0; i < contact.tags.length; i++){
+            if(contact.tags[i] == "Cliente")
+            contact.tags[i] = contact.type;
+        }
+    } else {
+        contact.type = "Cliente";
+        for(var i = 0; i < contact.tags.length; i++){
+            if(contact.tags[i] == "Colaborador")
+            contact.tags[i] = contact.type;
+        }
+    }
 
-    if (!contactToSave.id || !contactToSave.name || !contactToSave.email || !contactToSave.telephone)
-        return
+    return contact;
+}
 
-    _contacts.push(contactToSave);
-    localStorage.setItem('contacts', JSON.stringify(_contacts));
-    insertContactCard(contactToSave);
+function saveContact(edit = false) {
+    if(!edit){
+        contactToSave = createContact();
+        if (!contactToSave.id || !contactToSave.name || !contactToSave.email || !contactToSave.telephone)
+            return
+
+        _contacts.push(contactToSave);
+        localStorage.setItem('contacts', JSON.stringify(_contacts));
+        insertContactCard(contactToSave);
+    }
+    else{
+        var editedContact = findContact(_currentContactId);
+        getEditions(editedContact);
+        updateContact(editedContact);
+    }
 };
 
 function loadEventListeners() {
@@ -133,6 +164,12 @@ function loadEventListeners() {
         imageConverterEvent();
     });
 
+    $('#edit-confirmAdd').on('click', function () {
+        saveContact(true);
+        imageConverterEvent();
+    });
+    
+
     imageConverterEvent();
     loadFieldMasks();
 }
@@ -145,20 +182,21 @@ function loadContact(id){
     updateCurrentContact(id);
     var contact = _contacts[_currentContactId - 1];
 
-    document.getElementById("name").value = contact.name;
-    document.getElementById("lastName").value = contact.lastName;
-    document.getElementById("email").value = contact.email;
-    document.getElementById("telephone").value = contact.telephone;
-    $('#favorite').prop("checked", contact.isFavorite);
-    document.getElementById("observations").value = contact.observations;
+    document.getElementById("edit-name").value = contact.name;
+    document.getElementById("edit-lastName").value = contact.lastName;
+    document.getElementById("edit-email").value = contact.email;
+    document.getElementById("edit-telephone").value = contact.telephone;
+    $('#edit-favorite').prop("checked", contact.isFavorite);
+    document.getElementById("edit-observations").value = contact.observations;
 
     if(contact.type == "Colaborador"){
-        $("#optionsRadios1").prop("checked", true);
+        $("#edit-optionsRadios1").prop("checked", true);
     } else {
-        $("#optionsRadios2").prop("checked", true);
+        $("#edit-optionsRadios2").prop("checked", true);
     }
     
-    $('#addContact').modal('show');
+
+    $('#editContact').modal('show');
 }
 
 function loadData() {

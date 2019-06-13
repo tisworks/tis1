@@ -181,6 +181,76 @@
 </div>
 </div>
 
+<!-- Modal de Edição -->
+<div class="modal fade" id="editContact" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="EditModalLabel">Editar Contato</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="file" class="custom-file-input" id="edit-profileImgFile">
+                        <label class="custom-file-label" for="profileImg">Imagem de Perfil</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="edit-name" aria-describedby="" placeholder="Nome"
+                               required aria-required="true" maxlength="25">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="edit-lastName" aria-describedby=""
+                               placeholder="Sobrenome" required aria-required="true" maxlength="25">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" id="edit-telephone" aria-describedby=""
+                               placeholder="Telefone: (XX) XXXXX-XXXX" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="edit-email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="observations">Observações</label>
+                        <textarea class="form-control" id="edit-observations" rows="3"></textarea>
+                    </div> 
+                     <div class="radio">
+                        <label>
+                            <input type="radio" name="edit-options" id="edit-optionsRadios1" value="option1" checked>
+                            Colaborador
+                        </label>
+                    </div>
+                    <div class="radio">
+                         <label>
+                            <input type="radio" name="edit-options" id="edit-optionsRadios2" value="option2">
+                            Cliente
+                        </label>
+                            
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="edit-favorite"> Favorito
+                            </label>
+                        </div>
+
+
+
+
+                    </div>
+                    <input type="text" id="edit-profileImg" style="visibility: hidden">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id='edit-confirmAdd'>Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
 <!-- Modal de Inscrição de tags-->
 <div class="modal fade" id="insertTagModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
