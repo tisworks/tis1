@@ -182,6 +182,10 @@ function updateCurrentContact(id){
     _currentContactId = parseInt(id, 10);
 }
 
+function setImgPreview(e) {
+    $('#imgPreview').attr('src', e);
+}
+
 function loadContact(id){
     updateCurrentContact(id);
     var contact = _contacts[_currentContactId - 1];
@@ -253,14 +257,20 @@ function favoriteCheckbox() {
 function insertContactCard(contact) {
     let contactTagsHtml = "";
     let responsiveContactTagsHtml = "";
+    let cont = 0;
 
     contact.tags.forEach((tag) => {
         contactTagsHtml += `<div class="col-3"><span><h5>${tag}</h5></span></div>`;
-    })
+    });
 
     contact.tags.forEach((tag) => {
-        responsiveContactTagsHtml += `<div class="col-3"><span><h6>${tag}</h6></span></div>`;
-    })
+        if (cont == 0 || cont == 2) {
+            responsiveContactTagsHtml += `<div class="col-6"><span><h6>${tag}</h6></span></div>`;
+        } else if (cont == 1 || cont == 3){
+            responsiveContactTagsHtml += `<div class="col-6"><span><h6>${tag}</h6></span></div>`;
+        }
+        cont++;
+    });
 
     $("#cardPlace").append(`
         <br>
@@ -371,4 +381,5 @@ function loadimage(e1) {
 function imageHandler(e2) {
     var store = document.getElementById('profileImg');
     store.value = e2.target.result;
+    setImgPreview(store.value);
 }
