@@ -385,5 +385,9 @@ function imageHandler(e2) {
 
 function search() {
     let searchInput = document.getElementById('searchInput')
-    alert(searchInput.value);
+
+    let options = Array.prototype.slice.call(document.getElementsByName("searchOption"));
+    let opt = options.find(e => {return e.checked});
+
+    alert(opt.value);
 }
