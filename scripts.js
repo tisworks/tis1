@@ -382,3 +382,8 @@ function imageHandler(e2) {
     store.value = e2.target.result;
     setImgPreview(store.value);
 }
+
+function search() {
+    let searchInput = document.getElementById('searchInput')
+    alert(searchInput.value);
+}
