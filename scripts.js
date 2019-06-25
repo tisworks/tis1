@@ -208,15 +208,14 @@ function loadContact(id){
 }
 
 function loadData() {
-    if(localStorage.contacts){
+    if(localStorage.contacts)
         _contacts = JSON.parse(localStorage.contacts);
-
-        _contacts.forEach(contact => {
-            insertContactCard(contact);
-        });
-    }
     else
-        _contacts = new Array();
+        _contacts = defaultData;
+
+    _contacts.forEach(contact => {
+        insertContactCard(contact);
+    });
 
 }
 
