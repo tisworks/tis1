@@ -294,7 +294,7 @@ function insertContactCard(contact) {
                                     <h4 class="card-title">${contact.name} ${contact.lastName}</h4>
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-info ava-btn">
+                                    <button type="button" class="btn btn-info ava-btn golden">
                                         <span class="sr-only">Favorito</span>
                                         <i class="material-icons">grade</i>
                                     </button>
@@ -307,18 +307,18 @@ function insertContactCard(contact) {
                             <div class="row">
                                 <div class="col-10">
                                     <button type="button" onclick="updateCurrentContact(${contact.id})" 
-                                    class="btn ava-btn add-tag-modal" data-toggle="modal" data-target="#insertTagModal">
+                                    class="btn ava-btn add-tag-modal green" data-toggle="modal" data-target="#insertTagModal">
                                         <span class="sr-only">Adicionar Tag</span>
                                         <i class="material-icons">add</i>
                                     </button>
-                                    <button type="button" class="btn ava-btn" 
+                                    <button type="button" class="btn ava-btn red" 
                                     onclick="removeTagModalTrigger(${contact.id})">
                                         <span class="sr-only">Deletar Tag</span>
                                         <i class="material-icons">delete</i>
                                     </button>
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn ava-btn" 
+                                    <button type="button" class="btn ava-btn gray" 
                                     onclick="loadContact(${contact.id})">
                                         <span class="sr-only"></span>
                                         <i class="material-icons">edit</i>
@@ -333,7 +333,7 @@ function insertContactCard(contact) {
 
         <!-- Telas Menores -->
         <div class="card d-xl-none">
-        <button type="button" class="btn btn-info ava-btn">
+        <button type="button" class="btn btn-info ava-btn golden">
             <span class="sr-only">Favorito</span>
             <i class="material-icons">grade</i>
         </button>
@@ -349,18 +349,18 @@ function insertContactCard(contact) {
             <div class="row">
                 <div class="col-9">
                     <button type="button" onclick="updateCurrentContact(${contact.id})"
-                    class="btn ava-btn add-tag-modal" data-toggle="modal" data-target="#insertTagModal">
+                    class="btn ava-btn add-tag-modal green" data-toggle="modal" data-target="#insertTagModal">
                         <span class="sr-only">Adicionar Tag</span>
                         <i class="material-icons">add</i>
                     </button>
-                    <button type="button" class="btn ava-btn" 
+                    <button type="button" class="btn ava-btn red" 
                     onclick="removeTagModalTrigger(${contact.id})">
                         <span class="sr-only">Deletar Tag</span>
                         <i class="material-icons">delete</i>
                     </button>
                 </div>
                 <div class="col-1">
-                    <button type="button" class="btn ava-btn"
+                    <button type="button" class="btn ava-btn gray"
                     onclick="loadContact(${contact.id})">
                         <span class="sr-only"></span>
                         <i class="material-icons">edit</i>

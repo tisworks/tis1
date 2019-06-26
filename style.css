@@ -38,9 +38,22 @@ header i {
     color: #104E8B;
 }
 
-#cardPlace button {
+#cardPlace .golden {
     background-color: DarkGoldenRod!important;
 }
+
+#cardPlace .green {
+    background-color: darkgreen!important;
+}
+
+#cardPlace .red {
+    background-color: crimson!important;
+}
+
+#cardPlace .gray {
+    background-color: cadetblue!important;
+}
+
 
 .container {
     margin-top: 100px;
