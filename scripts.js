@@ -389,5 +389,31 @@ function search() {
     let options = Array.prototype.slice.call(document.getElementsByName("searchOption"));
     let opt = options.find(e => {return e.checked});
 
-    alert(opt.value);
+    let sContacts;
+    if(opt.value == "searchName") {
+        sContacts = _contacts.filter(e => {
+            return (e.name.toLowerCase().startsWith(searchInput.value.toLowerCase())
+                || e.lastName.toLowerCase().startsWith(searchInput.value.toLowerCase()))
+        });
+    } else {
+        sContacts = _contacts.filter(e => {
+            let sTags = e.tags.filter(e => {
+               return e.toLowerCase().startsWith(searchInput.value.toLowerCase());
+            });
+
+            return sTags.length > 0
+        });
+    }
+
+    $("#cardPlace").html("");
+    sContacts.forEach(contact => {
+        insertContactCard(contact);
+    });
+}
+
+function cancelSearch() {
+    $("#cardPlace").html("");
+    _contacts.forEach(contact => {
+        insertContactCard(contact);
+    });
 }
