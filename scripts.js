@@ -186,6 +186,7 @@ function updateCurrentContact(id){
 
 function setImgPreview(e) {
     $('#imgPreview').attr('src', e);
+    $('#edit-imgPreview').attr('src', e);
 }
 
 function loadContact(id){
@@ -223,7 +224,9 @@ function loadData() {
 
 function imageConverterEvent() {
     var element = document.getElementById("profileImgFile");
+    var elementEdit = document.getElementById("edit-profileImgFile");
     element.addEventListener('change', loadimage, false);
+    elementEdit.addEventListener('change', loadimage, false);
 }
 
 function loadFieldMasks() {
@@ -381,6 +384,9 @@ function loadimage(e1) {
 
 function imageHandler(e2) {
     var store = document.getElementById('profileImg');
+    if(store == "")
+        store = document.getElementById('edit-profileImg');
+
     store.value = e2.target.result;
     setImgPreview(store.value);
 }
