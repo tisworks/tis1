@@ -166,11 +166,11 @@
                         <input type="checkbox" id="favCheck" onclick="fav()">
                     </div>
                     <input type="text" id="profileImg" style="visibility: hidden">
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" id='confirmAdd'>Adicionar</button>
-                    </div>
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn ava-btn" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn ava-btn" onclick=confirmAdd()>Adicionar</button>
             </div>
         </div>
     </div>
@@ -305,7 +305,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn ava-btn" data-dismiss="modal" onclick="cancelSearch()">Cancelar</button>
-                <button type="button" class="btn ava-btn" onclick="search()">Pesquisar</button>
+                <button type="button" class="btn ava-btn" onclick="search()" data-dismiss="modal">Pesquisar</button>
             </div>
         </div>
     </div>

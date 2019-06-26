@@ -160,11 +160,6 @@ function loadEventListeners() {
         $('#addBtn').trigger('focus');
     });
 
-    $('#confirmAdd').on('click', function () {
-        saveContact();
-        imageConverterEvent();
-    });
-
     $('#edit-confirmAdd').on('click', function () {
         saveContact(true);
         imageConverterEvent();
@@ -176,6 +171,12 @@ function loadEventListeners() {
 
     imageConverterEvent();
     loadFieldMasks();
+}
+
+function confirmAdd() {
+    saveContact();
+    imageConverterEvent();
+    location.reload();
 }
 
 function updateCurrentContact(id){
