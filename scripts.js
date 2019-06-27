@@ -301,7 +301,9 @@ function insertContactCard(contact) {
                 <div class="col-3">
                     <div class="card h-100">
                         <div class="card-body">
-                            <img src="${contact.picture}" alt="Imagem do Contato">
+                            <a href="#">
+                                <img src="${contact.picture}" alt="Imagem do Contato" onclick="obsFunc(${contact.id})">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -310,7 +312,9 @@ function insertContactCard(contact) {
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-10">
-                                    <h4 class="card-title">${contact.name} ${contact.lastName}</h4>
+                                    <a href="#">
+                                        <h4 class="card-title" onclick="obsFunc(${contact.id})">${contact.name} ${contact.lastName}</h4>
+                                    </a>
                                 </div>
                                 <div class="col-1">
                                     <button type="button" class="btn btn-info ava-btn ${fColor}" onclick="setFav(${contact.id})">
@@ -357,10 +361,14 @@ function insertContactCard(contact) {
             <i class="material-icons">grade</i>
         </button>
         <div class="text-center">
-            <img class="card-img-top" src="${contact.picture}" alt="Imagem do Contato">
+            <a href="#">
+                <img class="card-img-top" src="${contact.picture}" alt="Imagem do Contato" onclick="obsFunc(${contact.id})">
+            </a>
         </div>
         <div class="card-body">
-            <h5 class="card-title">${contact.name} ${contact.lastName}</h5>
+            <a href="#">
+                <h5 class="card-title" onclick="obsFunc(${contact.id})">${contact.name} ${contact.lastName}</h5>
+           </a>
             <h6 class="card-text "><b>Tel:</b>${contact.telephone}</h6>
             <h6 class="card-text "><b>Email:</b>${contact.email}</h6>
             <div class="row responsive-tag-place">${responsiveContactTagsHtml}</div>
@@ -462,4 +470,16 @@ function setFav(id) {
     contact.isFavorite = !contact.isFavorite;
     updateContact(contact);
     location.reload();
+}
+
+function obsFunc(contactId) {
+    let contact = findContact(contactId);
+    let htmlTBI = `
+        <div>
+            ${contact.observations}
+        </div>`;
+
+
+    $('#obsModalBody').html(htmlTBI);
+    $('#obsModal').modal('show');
 }
