@@ -294,6 +294,12 @@ function insertContactCard(contact) {
                                     <h4 class="card-title">${contact.name} ${contact.lastName}</h4>
                                 </div>
                                 <div class="col-1">
+                                    <button type="button" class="btn ava-btn gray" onclick="observationsModalTrigger(${contact.id})>
+                                        <span class="sr-only"></span>
+                                        <i class="material-icons">info</i>
+                                    </button>
+                                </div>
+                                <div class="col-1">
                                     <button type="button" class="btn btn-info ava-btn golden">
                                         <span class="sr-only">Favorito</span>
                                         <i class="material-icons">grade</i>
@@ -341,7 +347,17 @@ function insertContactCard(contact) {
             <img class="card-img-top" src="${contact.picture}" alt="Imagem do Contato">
         </div>
         <div class="card-body">
-            <h5 class="card-title">${contact.name} ${contact.lastName}</h5>
+            <div class="row">
+                <div class="col-9"> 
+                    <h5 class="card-title">${contact.name} ${contact.lastName}</h5>
+                </div>
+                <div class="col-1">
+                    <button type="button" class="btn ava-btn gray" onclick="observationsModalTrigger(${contact.id})>
+                        <span class="sr-only"></span> 
+                        <i class="material-icons">info</i> 
+                        </button> 
+                </div>
+            </div>
             <h6 class="card-text "><b>Tel:</b>${contact.telephone}</h6>
             <h6 class="card-text "><b>Email:</b>${contact.email}</h6>
             <div class="row responsive-tag-place">${responsiveContactTagsHtml}</div>
@@ -418,4 +434,11 @@ function cancelSearch() {
     _contacts.forEach(contact => {
         insertContactCard(contact);
     });
+}
+
+function observationsModalTrigger(id) {
+    let contact = findContact(id);
+
+    $("#conatactObservations").append(`<h5 class="card-text">${contact.observations}</h5>`);
+    $("#conatactObservationsModal").modal("show");
 }
