@@ -419,3 +419,14 @@ function cancelSearch() {
         insertContactCard(contact);
     });
 }
+
+function favFilter() {
+    let fContacts = _contacts.filter(e => {
+       return e.isFavorite == true
+    });
+
+    $("#cardPlace").html("");
+    fContacts.forEach(contact => {
+        insertContactCard(contact);
+    });
+}
