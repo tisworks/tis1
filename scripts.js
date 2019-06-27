@@ -164,6 +164,10 @@ function deleteContact() {
         }
     }
 
+    for(var i = 0; i<_contacts.length; i++){
+        _contacts[i].id = (i+1);
+    }
+
     localStorage.setItem('contacts', JSON.stringify(_contacts));
     location.reload(); 
 }
