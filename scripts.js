@@ -294,7 +294,7 @@ function insertContactCard(contact) {
                                     <h4 class="card-title">${contact.name} ${contact.lastName}</h4>
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn ava-btn gray" onclick="observationsModalTrigger(${contact.id})>
+                                    <button type="button" class="btn ava-btn gray" onclick="observationsModalTrigger(${contact.id})">
                                         <span class="sr-only"></span>
                                         <i class="material-icons">info</i>
                                     </button>
