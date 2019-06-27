@@ -285,6 +285,12 @@ function insertContactCard(contact) {
         cont++;
     });
 
+    let fColor;
+    if(contact.isFavorite)
+        fColor = "golden"
+    else
+        fColor = "disGolden"
+
     $("#cardPlace").append(`
         <br>
 
@@ -306,7 +312,7 @@ function insertContactCard(contact) {
                                     <h4 class="card-title">${contact.name} ${contact.lastName}</h4>
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-info ava-btn golden">
+                                    <button type="button" class="btn btn-info ava-btn ${fColor}" onclick="setFav(${contact.id})">
                                         <span class="sr-only">Favorito</span>
                                         <i class="material-icons">grade</i>
                                     </button>
@@ -345,7 +351,7 @@ function insertContactCard(contact) {
 
         <!-- Telas Menores -->
         <div class="card d-xl-none">
-        <button type="button" class="btn btn-info ava-btn golden">
+        <button type="button" class="btn btn-info ava-btn ${fColor}">
             <span class="sr-only">Favorito</span>
             <i class="material-icons">grade</i>
         </button>
@@ -448,4 +454,11 @@ function favFilter() {
     fContacts.forEach(contact => {
         insertContactCard(contact);
     });
+}
+
+function setFav(id) {
+    let contact = findContact(id);
+    contact.isFavorite = !contact.isFavorite;
+    updateContact(contact);
+    location.reload();
 }

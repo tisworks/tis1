@@ -42,6 +42,10 @@ header i {
     background-color: DarkGoldenRod!important;
 }
 
+#cardPlace .disGolden {
+    background-color: dimgray!important;
+}
+
 #cardPlace .green {
     background-color: darkgreen!important;
 }
