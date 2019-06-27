@@ -117,9 +117,12 @@ function getEditions(contact){
     contact.lastName = document.getElementById("edit-lastName").value;
     contact.email = document.getElementById("edit-email").value;
     contact.telephone = document.getElementById("edit-telephone").value;
-    contact.picture = document.getElementById('edit-profileImg').value;
     contact.isFavorite = $('#edit-favorite').is(':checked');
     contact.observations = document.getElementById("edit-observations").value;
+
+    if(document.getElementById('edit-profileImg').value != "")
+        contact.picture = document.getElementById('edit-profileImg').value;
+        
     if(document.getElementsByName("edit-options")[0].checked == true){
         contact.type = "Colaborador";
         for(var i = 0; i < contact.tags.length; i++){
@@ -184,9 +187,14 @@ function updateCurrentContact(id){
     _currentContactId = parseInt(id, 10);
 }
 
-function setImgPreview(e) {
-    $('#imgPreview').attr('src', e);
-    $('#edit-imgPreview').attr('src', e);
+function setImgPreview(e, isEdit) {
+    if(isEdit == false)
+        $('#imgPreview').attr('src', e);
+    else
+        $('#edit-imgPreview').attr('src', e);
+
+    document.getElementById('profileImgFile').value = "";
+    document.getElementById('edit-profileImgFile').value = "";
 }
 
 function loadContact(id){
@@ -199,6 +207,7 @@ function loadContact(id){
     document.getElementById("edit-telephone").value = contact.telephone;
     $('#edit-favorite').prop("checked", contact.isFavorite);
     document.getElementById("edit-observations").value = contact.observations;
+    setImgPreview(contact.picture, true);
 
     if(contact.type == "Colaborador"){
         $("#edit-optionsRadios1").prop("checked", true);
@@ -383,12 +392,16 @@ function loadimage(e1) {
 }
 
 function imageHandler(e2) {
-    var store = document.getElementById('profileImg');
-    if(store == "")
-        store = document.getElementById('edit-profileImg');
-
-    store.value = e2.target.result;
-    setImgPreview(store.value);
+    if(document.getElementById('profileImgFile').value != ""){
+        var store = document.getElementById('profileImg');
+        store.value = e2.target.result;
+        setImgPreview(store.value, false);
+    }
+    if(document.getElementById('edit-profileImgFile').value != ""){
+        var store = document.getElementById('edit-profileImg');
+        store.value = e2.target.result;
+        setImgPreview(store.value, true);
+    }
 }
 
 function search() {
