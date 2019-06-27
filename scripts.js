@@ -45,8 +45,6 @@ function updateContact(contact) {
     localStorage.setItem('contacts', JSON.stringify(_contacts));
 }
 
-
-
 // Funcao do botao de remover tag
 function removeTagModalTrigger(contactId) {
     _currentContactId = contactId;
@@ -151,11 +149,24 @@ function saveContact(edit = false) {
         insertContactCard(contactToSave);
     }
     else{
-        var editedContact = findContact(_currentContactId);
+        let editedContact = findContact(_currentContactId);
         getEditions(editedContact);
         updateContact(editedContact);
     }
 };
+
+function deleteContact() {
+    let contact = findContact(_currentContactId);
+
+    for(let i=0; i<_contacts.length; i++) {
+        if(_contacts[i].id == contact.id) {
+            _contacts.splice(i, 1);
+        }
+    }
+
+    localStorage.setItem('contacts', JSON.stringify(_contacts));
+    location.reload(); 
+}
 
 function loadEventListeners() {
 

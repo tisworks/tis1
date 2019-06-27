@@ -7,6 +7,16 @@ body {
     color: white !important;
 }
 
+.ava-btn-red {
+    background-color: #104E8B !important;
+    color: darkred!important;
+}
+
+.ava-btn-green {
+    background-color: #104E8B !important;
+    color: green!important;
+}
+
 nav {
     background: black;
     background-color: black;
