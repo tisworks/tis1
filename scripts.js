@@ -286,7 +286,8 @@ function insertContactCard(contact) {
     });
 
     let fColor;
-    if(contact.isFavorite)
+    // JS shit
+    if(contact.isFavorite === 'true' || contact.isFavorite === true)
         fColor = "golden"
     else
         fColor = "disGolden"
